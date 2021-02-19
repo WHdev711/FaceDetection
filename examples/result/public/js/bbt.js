@@ -1,7 +1,22 @@
 const classes = ['amy', 'bernadette', 'howard', 'leonard', 'penny', 'raj', 'sheldon', 'stuart','yana']
-
+var datatmp = []
+fetch('list')
+.then(response => response.text())
+.then(data => {
+  // Do something with your data
+  var tmp = data.split('\n')
+  
+  for(var line = 0; line < tmp.length-1; line++){
+    datatmp.push(tmp[line].split('.')[0])
+  }
+});
 function getFaceImageUri(className, idx) {
   return `${className}/${className}${idx}.png`
+}
+
+
+function getFaceImageUri_Name(className) {
+  return `known/${className}.png`
 }
 
 function renderFaceImageSelectList(selectListId, onChange, initialValue) {
@@ -32,14 +47,15 @@ function renderFaceImageSelectList(selectListId, onChange, initialValue) {
 
 // fetch first image of each class and compute their descriptors
 async function createBbtFaceMatcher(numImagesForTraining = 1) {
+
   const maxAvailableImagesPerClass = 5
   numImagesForTraining = Math.min(numImagesForTraining, maxAvailableImagesPerClass)
 
-  const labeledFaceDescriptors = await Promise.all(classes.map(
+  const labeledFaceDescriptors = await Promise.all(datatmp.map(
     async className => {
       const descriptors = []
       for (let i = 1; i < (numImagesForTraining + 1); i++) {
-        const img = await faceapi.fetchImage(getFaceImageUri(className, i))
+        const img = await faceapi.fetchImage(getFaceImageUri_Name(className))
         descriptors.push(await faceapi.computeFaceDescriptor(img))
       }
 

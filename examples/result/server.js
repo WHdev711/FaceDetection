@@ -4,6 +4,21 @@ const { get } = require('request')
 
 const app = express()
 
+var fs = require('fs');
+const pngfiles = fs.readdirSync('../images/known/');
+
+fs.open('./public/list', 'w', function (err, file) {
+  if (err) throw err;
+});
+pngfiles.forEach(pngfilename=>{
+  fs.appendFile("./public/list", pngfilename.toString()+"\n", function(err) {
+    if(err) {
+        return console.log(err);
+    }
+}); 
+
+})
+
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 

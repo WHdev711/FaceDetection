@@ -24,6 +24,11 @@ async function requestExternalImage(imageUrl) {
 
 function renderNavBar(navbarId, exampleUri) {
   const examples = [
+
+    {
+      uri: 'bbt_face_recognition',
+      name: 'Face Recognition with name'
+    },
     {
       uri: 'face_detection',
       name: 'Face Detection'
@@ -43,11 +48,6 @@ function renderNavBar(navbarId, exampleUri) {
     {
       uri: 'bbt_face_similarity',
       name: 'Two Face Similarity'
-    },
-
-    {
-      uri: 'bbt_face_recognition',
-      name: 'Face Recognition with name'
     },
   ]
 
@@ -73,17 +73,17 @@ function renderNavBar(navbarId, exampleUri) {
   navbar.appendChild(menuButton)
 
   const li = document.createElement('li')
-  const githubLink = document.createElement('a')
-  githubLink.classList.add('waves-effect', 'waves-light', 'side-by-side')
-  githubLink.id = 'github-link'
-  githubLink.href = 'https://github.com/justadudewhohacks/face-api.js'
-  const h5 = document.createElement('h5')
-  h5.innerHTML = 'Face Detection vs 1.0.0'
-  githubLink.appendChild(h5)
-  const githubLinkIcon = document.createElement('img')
-  githubLinkIcon.src = 'github_link_icon.png'
-  githubLink.appendChild(githubLinkIcon)
-  li.appendChild(githubLink)
+  // const githubLink = document.createElement('a')
+  // githubLink.classList.add('waves-effect', 'waves-light', 'side-by-side')
+  // githubLink.id = 'github-link'
+  // githubLink.href = 'https://github.com/justadudewhohacks/face-api.js'
+  // const h5 = document.createElement('h5')
+  // h5.innerHTML = 'Face Detection vs 1.0.0'
+  // githubLink.appendChild(h5)
+  // const githubLinkIcon = document.createElement('img')
+  // githubLinkIcon.src = 'github_link_icon.png'
+  // githubLink.appendChild(githubLinkIcon)
+  // li.appendChild(githubLink)
   menuContent.appendChild(li)
 
   examples
