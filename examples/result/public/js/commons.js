@@ -78,7 +78,7 @@ function renderNavBar(navbarId, exampleUri) {
   githubLink.id = 'github-link'
   githubLink.href = 'https://github.com/justadudewhohacks/face-api.js'
   const h5 = document.createElement('h5')
-  h5.innerHTML = 'face-api.js'
+  h5.innerHTML = 'Face Detection vs 1.0.0'
   githubLink.appendChild(h5)
   const githubLinkIcon = document.createElement('img')
   githubLinkIcon.src = 'github_link_icon.png'
